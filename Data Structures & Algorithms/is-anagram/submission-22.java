@@ -1,0 +1,25 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        // HashMap
+        // Time complexity: O(n + m)
+        // Space complexity: O(1)
+
+        // compare the length
+        // create two hashMap
+        // put char as key and value as count of the char
+        // compare two HashMap
+
+        // fail early
+        if (s.length() != t.length()) return false;
+
+        HashMap<Character, Integer> sMap = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> tMap = new HashMap<Character, Integer>();
+
+        for (int i = 0; i < s.length(); i++) {
+            sMap.put(s.charAt(i), sMap.getOrDefault(s.charAt(i), 0) + 1);
+            tMap.put(t.charAt(i), tMap.getOrDefault(t.charAt(i), 0) + 1);
+        }
+
+        return sMap.equals(tMap);
+    }
+}
